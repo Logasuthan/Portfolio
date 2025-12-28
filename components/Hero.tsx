@@ -63,9 +63,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-cover bg-black/80 bg-blend-overlay" id="home"  style={{ backgroundImage: "url('/hero_bg.png')" }}>
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
+      <div className="absolute inset-0 from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -106,20 +106,6 @@ const Hero = () => {
             variants={itemVariants}
             className="inline-flex items-center mb-8"
           >
-            <motion.div
-              className="relative inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-lg border border-gray-200 dark:border-gray-700"
-              variants={badgeVariants}
-              whileHover="hover"
-            >
-              <motion.div
-                className="w-2 h-2 bg-green-500 rounded-full mr-2"
-                variants={pulseVariants}
-                animate="pulse"
-              />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                2 years experience
-              </span>
-            </motion.div>
           </motion.div>
 
           {/* Main Headline */}
@@ -129,7 +115,7 @@ const Hero = () => {
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Loga
+              Logasuthan
             </span>
           </motion.h1>
 
@@ -138,7 +124,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            Frontend-focused Associate Software Engineer passionate about creating 
+            Frontend-focused Software Engineer passionate about creating 
             beautiful, functional, and user-friendly web applications.
           </motion.p>
 

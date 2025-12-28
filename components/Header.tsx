@@ -23,7 +23,6 @@ const Header = () => {
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
-    { name: "Resume", href: "/resume.pdf" },
   ];
 
   const containerVariants = {
@@ -66,9 +65,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Name */}
-          <motion.div
+          <motion.a
             className="flex items-center space-x-2"
             variants={itemVariants}
+            href="#home"
           >
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">L</span>
@@ -76,7 +76,7 @@ const Header = () => {
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               Loga
             </span>
-          </motion.div>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <motion.nav

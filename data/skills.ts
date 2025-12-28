@@ -120,14 +120,6 @@ export const skills: Skill[] = [
 
   // DevOps
   {
-    id: 'aws',
-    name: 'AWS',
-    proficiency: 3,
-    category: 'devops',
-    miniSnippet: 'Deploys applications using S3, Lambda, and EC2',
-    icon: '☁️'
-  },
-  {
     id: 'docker',
     name: 'Docker',
     proficiency: 3,
@@ -178,14 +170,6 @@ export const skills: Skill[] = [
     category: 'languages',
     miniSnippet: 'Native speaker with technical writing skills',
     icon: '🇺🇸'
-  },
-  {
-    id: 'spanish',
-    name: 'Spanish',
-    proficiency: 3,
-    category: 'languages',
-    miniSnippet: 'Conversational level for team collaboration',
-    icon: '🇪🇸'
   }
 ];
 
