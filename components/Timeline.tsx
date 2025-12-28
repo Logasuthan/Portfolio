@@ -10,28 +10,28 @@ const Timeline = () => {
       type: "career",
       title: "Associate Software Engineer",
       company: "Current Role",
-      period: "2023 - Present",
-      description: "Frontend-focused development role, building scalable web applications and contributing to user experience improvements.",
+      period: "2024 - Present",
+      description: "Functioning as a Software Engineer-level contributor in frontend development, building scalable web applications and contributing to user experience improvements.",
       icon: HiBriefcase,
       color: "blue",
     },
     {
       id: 2,
       type: "career",
-      title: "Banking Assistant",
-      company: "Previous Role",
-      period: "2021 - 2023",
-      description: "Developed strong analytical and customer service skills while gaining valuable business experience.",
+      title: "Trainee Software Engineer",
+      company: "Codelantic",
+      period: "2023 -July - 2024-February",
+      description: "Built and enhanced UI components, focusing on responsive and user-friendly design & Integrated frontend components with REST APIs and handled basic state management",
       icon: HiBriefcase,
       color: "purple",
     },
     {
       id: 3,
       type: "education",
-      title: "Computer Science Degree",
-      company: "University",
-      period: "2021 - Present",
-      description: "Currently pursuing degree in Computer Science, balancing studies with practical development experience.",
+      title: "Software Engineering Degree",
+      company: "ESOFT UNI",
+      period: "2023 - Present",
+      description: "Currently pursuing degree in Software Engineering, balancing studies with practical development experience.",
       icon: HiAcademicCap,
       color: "green",
     },
@@ -96,7 +96,7 @@ const Timeline = () => {
               My Journey
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              From banking to software engineering, here's how my career has evolved
+              Over 2.5 years, I’ve built real-world web apps using React, Next.js, and Angular. I thrive on creating intuitive interfaces and solving problems with elegant, efficient code.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mt-4" />
           </motion.div>

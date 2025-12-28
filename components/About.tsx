@@ -28,8 +28,9 @@ const About = () => {
   };
 
   const skills = [
-    "React", "TypeScript", "JavaScript", "Next.js", "Node.js", 
-    "Python", "SQL", "Git", "AWS", "Docker", "Agile", "REST APIs"
+    "React","Angular", "TypeScript", "JavaScript", "Next.js","Tailwind CSS", 
+    ,"Node.js","Express.js","REST APIs", 
+    "PostgreSQL", "Git & GitHub", "Docker", "Postman","VS Code","Figma"
   ];
 
   return (
@@ -64,7 +65,7 @@ const About = () => {
                     Current Role
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm currently working as an Associate Software Engineer, where I focus on 
+                    I'm currently working as a Software Engineer, where I focus on 
                     frontend development and contribute to building scalable web applications. 
                     My passion lies in creating intuitive user experiences and writing clean, 
                     maintainable code.
@@ -81,7 +82,7 @@ const About = () => {
                     Education in Progress
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm actively pursuing my degree in Computer Science, balancing my studies 
+                    I'm actively pursuing my degree in Software Engineering, balancing my studies 
                     with real-world development experience. This combination allows me to apply 
                     theoretical knowledge to practical projects and stay current with industry trends.
                   </p>

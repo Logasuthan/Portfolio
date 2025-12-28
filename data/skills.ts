@@ -2,44 +2,30 @@ export interface Skill {
   id: string;
   name: string;
   proficiency: number; // 1-5 scale
-  category: 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'languages';
+  category: 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'libraries';
   miniSnippet: string;
   icon?: string;
 }
 
 export const skills: Skill[] = [
   // Frontend
+  
+
   {
-    id: 'react',
-    name: 'React',
-    proficiency: 5,
+    id: 'javascript',
+    name: 'JavaScript',
+    proficiency: 4,
     category: 'frontend',
-    miniSnippet: 'Builds component-based UIs with hooks and context API',
-    icon: '⚛️'
+    miniSnippet: 'Writes ES6+ code with async/await patterns',
+    icon: '/logo/js.png'
   },
-  {
+    {
     id: 'typescript',
     name: 'TypeScript',
     proficiency: 4,
     category: 'frontend',
     miniSnippet: 'Implements type-safe interfaces and generics',
-    icon: '📘'
-  },
-  {
-    id: 'nextjs',
-    name: 'Next.js',
-    proficiency: 4,
-    category: 'frontend',
-    miniSnippet: 'Creates SSR/SSG applications with App Router',
-    icon: '▲'
-  },
-  {
-    id: 'javascript',
-    name: 'JavaScript',
-    proficiency: 5,
-    category: 'frontend',
-    miniSnippet: 'Writes ES6+ code with async/await patterns',
-    icon: '🟨'
+    icon: '/logo/typescript.png'
   },
   {
     id: 'html',
@@ -47,15 +33,15 @@ export const skills: Skill[] = [
     proficiency: 5,
     category: 'frontend',
     miniSnippet: 'Creates semantic markup with accessibility features',
-    icon: '🌐'
+    icon: '/logo/HTML.SVG'
   },
   {
     id: 'css',
     name: 'CSS3',
-    proficiency: 4,
+    proficiency: 5,
     category: 'frontend',
     miniSnippet: 'Implements responsive designs with Flexbox/Grid',
-    icon: '🎨'
+    icon: '/logo/CSS3.png'
   },
   {
     id: 'tailwind',
@@ -63,51 +49,66 @@ export const skills: Skill[] = [
     proficiency: 4,
     category: 'frontend',
     miniSnippet: 'Builds utility-first responsive layouts',
-    icon: '🎯'
+    icon: '/logo/tailwind.svg'
+  },
+  {
+    id: 'react',
+    name: 'React',
+    proficiency: 4,
+    category: 'frontend',
+    miniSnippet: 'Builds component-based UIs with hooks and context API',
+    icon: '/logo/react.png'
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    proficiency: 4,
+    category: 'frontend',
+    miniSnippet: 'Creates SSR/SSG applications with App Router',
+    icon: '/logo/nextjs.png'
   },
   {
     id: 'angular',
     name: 'Angular',
-    proficiency: 3,
+    proficiency: 4,
     category: 'frontend',
     miniSnippet: 'Implements lazy-loaded modules for performance',
-    icon: '🅰️'
+    icon: '/logo/angular.jfif'
   },
-
+  {
+    id: 'tanstack-query',
+    name: 'TanStack Query',
+    proficiency: 3,
+    category: 'frontend',
+    miniSnippet: 'Manages server state, caching, and data fetching in React apps',
+    icon: '/logo/tanstack-query.svg'
+  },
   // Backend
   {
     id: 'nodejs',
     name: 'Node.js',
-    proficiency: 4,
-    category: 'backend',
-    miniSnippet: 'Develops REST APIs with Express.js framework',
-    icon: '🟢'
-  },
-  {
-    id: 'python',
-    name: 'Python',
     proficiency: 3,
     category: 'backend',
-    miniSnippet: 'Writes clean scripts and API endpoints',
-    icon: '🐍'
+    miniSnippet: 'Develops REST APIs with Express.js framework',
+    icon: '/logo/nodejs.svg'
   },
   {
     id: 'express',
     name: 'Express.js',
-    proficiency: 4,
+    proficiency: 3,
     category: 'backend',
     miniSnippet: 'Creates middleware and route handlers',
-    icon: '🚂'
+    icon: '/logo/expressjs.svg'
   },
 
   // Database
   {
     id: 'sql',
-    name: 'SQL',
+    name: 'PostgreSQL',
     proficiency: 4,
     category: 'database',
     miniSnippet: 'Writes complex queries with JOINs and subqueries',
-    icon: '🗄️'
+    icon: '/logo/postgre.png'
   },
   {
     id: 'mongodb',
@@ -115,7 +116,7 @@ export const skills: Skill[] = [
     proficiency: 3,
     category: 'database',
     miniSnippet: 'Designs NoSQL schemas and aggregation pipelines',
-    icon: '🍃'
+    icon: '/logo/mongodb.svg'
   },
 
   // DevOps
@@ -125,7 +126,7 @@ export const skills: Skill[] = [
     proficiency: 3,
     category: 'devops',
     miniSnippet: 'Containerizes applications with multi-stage builds',
-    icon: '🐳'
+    icon: '/logo/docker.svg'
   },
   {
     id: 'git',
@@ -133,7 +134,15 @@ export const skills: Skill[] = [
     proficiency: 4,
     category: 'devops',
     miniSnippet: 'Manages version control with branching strategies',
-    icon: '📝'
+    icon: '/logo/git.png'
+  },
+  {
+    id: 'nginx',
+    name: 'Nginx',
+    proficiency: 3,
+    category: 'devops',
+    miniSnippet: 'Web server, reverse proxy, and production deployment',
+    icon: '/logo/nginx.png'
   },
 
   // Tools
@@ -143,7 +152,7 @@ export const skills: Skill[] = [
     proficiency: 4,
     category: 'tools',
     miniSnippet: 'Uses extensions and debugging tools efficiently',
-    icon: '💻'
+    icon: '/logo/vscode.png'
   },
   {
     id: 'postman',
@@ -151,7 +160,7 @@ export const skills: Skill[] = [
     proficiency: 4,
     category: 'tools',
     miniSnippet: 'Tests APIs and creates documentation',
-    icon: '📮'
+    icon: '/logo/postman.svg'
   },
   {
     id: 'figma',
@@ -159,18 +168,49 @@ export const skills: Skill[] = [
     proficiency: 3,
     category: 'tools',
     miniSnippet: 'Collaborates on UI/UX design prototypes',
-    icon: '🎨'
+    icon: '/logo/figma.svg'
   },
-
-  // Languages
+  //Libraries
   {
-    id: 'english',
-    name: 'English',
-    proficiency: 5,
-    category: 'languages',
-    miniSnippet: 'Native speaker with technical writing skills',
-    icon: '🇺🇸'
-  }
+  id: 'redux',
+  name: 'Redux',
+  proficiency: 3,
+  category: 'libraries',
+  miniSnippet: 'Manages global state in React applications',
+  icon: '/logo/redux.png'
+},
+{
+  id: 'ngrx',
+  name: 'NgRx',
+  proficiency: 3,
+  category: 'libraries',
+  miniSnippet: 'Implements reactive state management in Angular apps',
+  icon: '/logo/ngrx.svg'
+},
+{
+  id: 'ngzorro',
+  name: 'NG-ZORRO',
+  proficiency: 3,
+  category: 'libraries',
+  miniSnippet: 'Uses Angular UI components for enterprise applications',
+  icon: '/logo/ngzorro.svg'
+},
+{
+  id: 'react-hook-form',
+  name: 'React Hook Form',
+  proficiency: 3,
+  category: 'libraries',
+  miniSnippet: 'Builds performant and scalable forms in React applications',
+  icon: '/logo/react-hook-form.png'
+},
+{
+  id: 'zod',
+  name: 'Zod',
+  proficiency: 3,
+  category: 'libraries',
+  miniSnippet: 'Implements schema-based form and data validation',
+  icon: '/logo/zod.png'
+}
 ];
 
 export const skillCategories = [
@@ -179,5 +219,5 @@ export const skillCategories = [
   { key: 'database', label: 'Database', color: 'purple' },
   { key: 'devops', label: 'DevOps', color: 'orange' },
   { key: 'tools', label: 'Tools', color: 'indigo' },
-  { key: 'languages', label: 'Languages', color: 'pink' }
+  { key: 'libraries', label: 'libraries', color: 'vilot' },
 ]; 

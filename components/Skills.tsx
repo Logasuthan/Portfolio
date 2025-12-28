@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { skills, skillCategories, type Skill } from "../data/skills";
 import { HiCode, HiStar, HiFilter } from "react-icons/hi";
+import Image from "next/image";
 
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -14,7 +15,7 @@ const Skills = () => {
     : skills.filter(skill => skill.category === selectedCategory);
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -25,12 +26,12 @@ const Skills = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.2,
         ease: "easeOut" as const,
       },
     },
@@ -66,7 +67,7 @@ const Skills = () => {
             className={`h-full ${getProficiencyColor(proficiency)} rounded-full`}
             initial={{ width: 0 }}
             animate={{ width: `${(proficiency / 5) * 100}%` }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.2, delay: 0.5 }}
           />
         </div>
         <span className="text-xs text-gray-500 dark:text-gray-400 min-w-[1.5rem] text-right">
@@ -178,14 +179,14 @@ const Skills = () => {
                   onBlur={() => setHoveredSkill(null)}
                 >
                   {/* Skill Card */}
-                  <div className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 h-full">
+                  <div className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200 dark:border-gray-600 h-full">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         {skill.icon && (
-                          <span className="text-2xl" role="img" aria-label={`${skill.name} icon`}>
-                            {skill.icon}
-                          </span>
+                          <Image width={32} height={32} role="img" alt="" src={skill.icon}/>
+                            
+                          
                         )}
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -212,9 +213,9 @@ const Skills = () => {
                     <AnimatePresence>
                       {hoveredSkill === skill.id && (
                         <motion.div
-                          initial={{ opacity: 0, height: 0 }}
+                          initial={{ opacity: 1, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
+                          exit={{ opacity: 1, height: 0 }}
                           transition={{ duration: 0.2 }}
                           className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
                         >
@@ -226,7 +227,7 @@ const Skills = () => {
                     </AnimatePresence>
 
                     {/* Hover Indicator */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="absolute top-4 right-4 opacity-1 group-hover:opacity-100 transition-opacity duration-200">
                       <HiStar className="w-4 h-4 text-yellow-500" />
                     </div>
                   </div>
