@@ -86,7 +86,7 @@ const ContactForm = () => {
             variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
-            {contactLinks.map((contact, index) => {
+            {contactLinks.map((contact) => {
               const IconComponent = contact.icon;
               return (
                 <motion.a
@@ -119,7 +119,7 @@ const ContactForm = () => {
           >
             <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I'm always interested in hearing about new opportunities, interesting projects, 
+                I&apos;m always interested in hearing about new opportunities, interesting projects, 
                 or just connecting with fellow developers. Feel free to reach out!
               </p>
             </div>

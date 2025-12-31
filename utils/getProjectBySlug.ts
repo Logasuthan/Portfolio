@@ -26,14 +26,6 @@ export function getAllProjectSlugs(): string[] {
 export function getRelatedProjects(currentSlug: string, limit: number = 3): Project[] {
   return projects
     .filter(project => project.slug !== currentSlug)
-    .sort((a, b) => {
-      // Prioritize featured projects
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      // Then sort by date (newest first)
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    })
-    .slice(0, limit);
 }
 
 /**

@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiFilter, HiX } from "react-icons/hi";
-import { projects, projectCategories, allTechnologies, type Project } from "../data/projects";
+import { projects, projectCategories, allTechnologies } from "../data/projects";
 import ProjectCard from "./ProjectCard";
 
 const ProjectsGrid = () => {
