@@ -210,7 +210,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
               aria-label={`View ${project.title} live demo`}
             >
               <HiExternalLink className="w-4 h-4" />
-              <span>{project.isLive ? "Live Demo" : "View Demo"}</span>
+              <span>{project.isLive ? "Visit Now" : "View Demo"}</span>
             </a>
           )}
         </div>
@@ -386,7 +386,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
                         aria-label={`View ${project.title} live demo`}
                       >
                         <HiExternalLink className="w-5 h-5" />
-                        <span>{project.isLive ? "Live Demo" : "View Demo"}</span>
+                        <span>{project.isLive ? "Visit Now" : "View Demo"}</span>
                       </a>
                     )}
                   </motion.div>
