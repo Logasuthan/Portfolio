@@ -12,23 +12,12 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <main id="main-content">
-      {/* Hero Section */}
       <Hero />
-
-      {/* About Section */}
       <About />
-
-      {/* Timeline Section */}
       <Timeline />
-
-      {/* Skills Section */}
       <Skills />
-
-      {/* Projects Section */}
       <ProjectsGrid />
-
-      {/* Contact Section */}
-      <ContactForm />
+      <ContactForm/>
       </main>
     </div>
   );

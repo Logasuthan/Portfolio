@@ -32,11 +32,7 @@ const ProjectsGrid = () => {
     }
 
     // Sort by featured first, then by date
-    return filtered.sort((a, b) => {
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
+    return filtered
   }, [selectedCategory, selectedTechnologies]);
 
   const handleTechnologyToggle = (tech: string) => {

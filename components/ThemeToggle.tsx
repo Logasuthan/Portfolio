@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HiSun, HiMoon } from "react-icons/hi";
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     // Check localStorage on mount

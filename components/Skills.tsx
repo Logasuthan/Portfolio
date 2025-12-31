@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { skills, skillCategories, type Skill } from "../data/skills";
 import { HiCode, HiX, HiFilter } from "react-icons/hi";
@@ -9,6 +9,41 @@ import Image from "next/image";
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
+  const scrollPositionRef = useRef<number>(0);
+
+  // Freeze background scroll when modal is open
+  useEffect(() => {
+    if (expandedSkill) {
+      // Save current scroll position
+      scrollPositionRef.current = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scroll position
+      const scrollY = scrollPositionRef.current;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      
+      // Use requestAnimationFrame to ensure DOM is updated before scrolling
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
+    }
+
+    // Cleanup function
+    return () => {
+      if (!expandedSkill) {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+      }
+    };
+  }, [expandedSkill]);
 
   const filteredSkills = selectedCategory === "all" 
     ? skills 
@@ -273,7 +308,7 @@ const Skills = () => {
                       </button>
 
                       {/* Card Content */}
-                      <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1">
+                      <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 modal-scrollbar">
                         {/* Header Section */}
                         <motion.div
                           initial={{ opacity: 0, y: -20 }}
