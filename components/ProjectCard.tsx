@@ -14,14 +14,13 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
   const getCategoryColor = (category: string) => {
     const colors = {
       'web-app': 'bg-blue-500',
+      'full-stack-project': 'bg-blue-500',
       'mobile-app': 'bg-green-500',
       'api': 'bg-purple-500',
       'tool': 'bg-orange-500',
@@ -29,7 +28,6 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
     };
     return colors[category as keyof typeof colors] || 'bg-gray-500';
   };
-
   return (
     <motion.article
       className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
@@ -65,25 +63,17 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
             isHovered ? 'scale-110' : 'scale-100'
           }`}
           priority={priority}
-          onLoad={() => setImageLoaded(true)}
+          
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         
-        {/* Loading Placeholder */}
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
-          </div>
-        )}
-
-        {/* Hover Overlay */}
         <AnimatePresence>
           {isHovered && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/70 flex items-center justify-center"
+              className="absolute inset-0 bg-black/70 flex items-center justify-center z-10"
               transition={{ duration: 0.2 }}
             >
               <div className="flex space-x-4">
@@ -92,7 +82,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200"
+                    className="flex items-center space-x-2 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={`View ${project.title} source code`}
@@ -113,7 +103,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
                     aria-label={`View ${project.title} live demo`}
                   >
                     <HiEye className="w-4 h-4" />
-                    <span>Live</span>
+                    <span>{project.isLive?'Live':'Demo Video'}</span>
                   </motion.a>
                 )}
               </div>
@@ -139,10 +129,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
               <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${getCategoryColor(project.category)} text-white`}>
                 {project.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
               </span>
-              <div className="flex items-center space-x-1 text-xs text-gray-500 dark:text-gray-400">
-                <HiCalendar className="w-3 h-3" />
-                <span>{project.date}</span>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -178,7 +165,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium transition-colors duration-200"
+              className="z-10 flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium transition-colors duration-200 cursor-pointer"
               aria-label={`View ${project.title} source code`}
             >
               <HiCode className="w-4 h-4" />
@@ -191,11 +178,11 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
+              className="z-10 flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
               aria-label={`View ${project.title} live demo`}
             >
               <HiExternalLink className="w-4 h-4" />
-              <span>Live Demo</span>
+              <span>{project.isLive?'Live Demo':'View Demo'}</span>
             </a>
           )}
         </div>

@@ -9,8 +9,8 @@ export interface Project {
   repo: string;
   live?: string;
   featured: boolean;
-  category: 'web-app' | 'mobile-app' | 'api' | 'tool' | 'website';
-  date: string;
+  isLive:boolean
+  category: 'web-app' | 'mobile-app' | 'api' | 'tool' | 'website'|'full-stack-project';
 }
 
 export const projects: Project[] = [
@@ -26,21 +26,21 @@ export const projects: Project[] = [
     live: 'https://loga.dev',
     featured: true,
     category: 'website',
-    date: '2024-12'
+    isLive:true
   },
   {
     id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    slug: 'ecommerce-platform',
-    short: 'Full-stack e-commerce solution with payment integration',
-    description: 'A comprehensive e-commerce platform featuring product management, shopping cart, user authentication, payment processing with Stripe, and admin dashboard. Built with React, Node.js, and MongoDB.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Express.js', 'JWT'],
-    image: '/images/projects/ecommerce.jpg',
-    repo: 'https://github.com/loga/ecommerce-platform',
-    live: 'https://ecommerce-demo.loga.dev',
+    title: 'Online Stationery Shop',
+    slug: 'online-stationery-shop',
+    short: 'Full-stack e-commerce app with customer shopping and admin management',
+    description: 'Online Stationery Shop is a full-stack e-commerce application built using Next.js and Node.js. It allows customers to browse products, manage carts, and place orders, while admins can manage products and orders through a secure dashboard.',
+    tech: ['NextJs','React','Node.js','PostgreSQL','Express.js','JWT','Prisma'],
+    image: '/ebookshop.png',
+    repo: 'https://github.com/Logasuthan/ebookshop.git',
+    live: 'https://youtu.be/sFRPYJPjD5o',
     featured: true,
-    category: 'web-app',
-    date: '2024-10'
+    category: 'full-stack-project',
+    isLive:false
   },
   {
     id: 'blog-platform',
@@ -54,13 +54,13 @@ export const projects: Project[] = [
     live: 'https://blog.loga.dev',
     featured: false,
     category: 'website',
-    date: '2024-02'
+    isLive:false
   }
 ];
 
 export const projectCategories = [
   { key: 'all', label: 'All Projects', color: 'gray' },
-  { key: 'web-app', label: 'Web Apps', color: 'blue' },
+  { key: 'full-stack-project', label: 'Full-Stack Project', color: 'blue' },
   { key: 'mobile-app', label: 'Mobile Apps', color: 'green' },
   { key: 'api', label: 'APIs', color: 'purple' },
   { key: 'tool', label: 'Tools', color: 'orange' },

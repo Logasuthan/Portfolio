@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { skills, skillCategories, type Skill } from "../data/skills";
-import { HiCode, HiStar, HiFilter } from "react-icons/hi";
+import { HiCode, HiX, HiFilter } from "react-icons/hi";
 import Image from "next/image";
 
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [expandedSkill, setExpandedSkill] = useState<string | null>(null);
 
   const filteredSkills = selectedCategory === "all" 
     ? skills 
@@ -166,27 +166,35 @@ const Skills = () => {
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
-            <AnimatePresence mode="wait">
-              {filteredSkills.map((skill) => (
+            {filteredSkills.map((skill) => {
+              const isExpanded = expandedSkill === skill.id;
+              
+              return (
                 <motion.div
                   key={skill.id}
                   variants={itemVariants}
                   layout
-                  className="group relative"
-                  onMouseEnter={() => setHoveredSkill(skill.id)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                  onFocus={() => setHoveredSkill(skill.id)}
-                  onBlur={() => setHoveredSkill(null)}
+                  className="relative"
                 >
                   {/* Skill Card */}
-                  <div className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200 dark:border-gray-600 h-full">
+                  <motion.div
+                    layoutId={`skill-card-${skill.id}`}
+                    className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg cursor-pointer border border-gray-200 dark:border-gray-600 h-full overflow-hidden"
+                    onClick={() => setExpandedSkill(isExpanded ? null : skill.id)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  >
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         {skill.icon && (
-                          <Image width={32} height={32} role="img" alt="" src={skill.icon}/>
-                            
-                          
+                          <motion.div
+                            animate={{ scale: isExpanded ? 1.2 : 1 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          >
+                            <Image width={32} height={32} role="img" alt="" src={skill.icon}/>
+                          </motion.div>
                         )}
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -204,37 +212,141 @@ const Skills = () => {
                       {renderProficiencyBar(skill.proficiency)}
                     </div>
 
-                    {/* Proficiency Dots (Alternative view) */}
+                    {/* Proficiency Dots */}
                     <div className="mb-4">
                       {renderProficiencyDots(skill.proficiency)}
                     </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
 
-                    {/* Mini Snippet (Hidden by default, shown on hover) */}
-                    <AnimatePresence>
-                      {hoveredSkill === skill.id && (
+          {/* Expanded Card Modal - App Store Style */}
+          <AnimatePresence>
+            {expandedSkill && (() => {
+              const skill = skills.find(s => s.id === expandedSkill);
+              if (!skill) return null;
+
+              return (
+                <div key={expandedSkill}>
+                  {/* Backdrop */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+                    onClick={() => setExpandedSkill(null)}
+                  />
+
+                  {/* Expanded Card */}
+                  <motion.div
+                    layoutId={`skill-card-${expandedSkill}`}
+                    className={`fixed sm:top-1/2 sm:left-1/25 lg:top-1/4 lg:left-1/4 z-50 w-[calc(100%-2rem)] max-w-2xl`}
+                    style={{
+                      x: '-50%',
+                      y: '-50%',
+                    }}
+                    initial={false}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 400, 
+                      damping: 35,
+                      mass: 0.8
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <motion.div 
+                      className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
+                      initial={{ borderRadius: "1rem" }}
+                      animate={{ borderRadius: "1.5rem" }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {/* Close Button */}
+                      <button
+                        onClick={() => setExpandedSkill(null)}
+                        className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+                        aria-label="Close"
+                      >
+                        <HiX className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 dark:text-gray-300" />
+                      </button>
+
+                      {/* Card Content */}
+                      <div className="p-4 sm:p-6 md:p-8 overflow-y-auto flex-1">
+                        {/* Header Section */}
                         <motion.div
-                          initial={{ opacity: 1, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 1, height: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
+                          initial={{ opacity: 0, y: -20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.1, duration: 0.3 }}
+                          className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6"
                         >
-                          <p className="text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
+                          {skill.icon && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                              className="flex-shrink-0"
+                            >
+                              <Image 
+                                width={64} 
+                                height={64} 
+                                role="img" 
+                                alt="" 
+                                src={skill.icon}
+                                className="rounded-xl w-12 h-12 sm:w-16 sm:h-16"
+                              />
+                            </motion.div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                              {skill.name}
+                            </h2>
+                            <span className={`inline-block px-3 py-1 text-sm font-medium rounded-full ${getCategoryColor(skill.category)}`}>
+                              {skillCategories.find(cat => cat.key === skill.category)?.label}
+                            </span>
+                          </div>
+                        </motion.div>
+
+                        {/* Proficiency Section */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2, duration: 0.3 }}
+                          className="mb-4 sm:mb-6"
+                        >
+                          <h3 className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wide">
+                            Proficiency Level
+                          </h3>
+                          <div className="mb-4">
+                            {renderProficiencyBar(skill.proficiency)}
+                          </div>
+                          <div className="mb-4">
+                            {renderProficiencyDots(skill.proficiency)}
+                          </div>
+                        </motion.div>
+
+                        {/* Description Section */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3, duration: 0.3 }}
+                          className="pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700"
+                        >
+                          <h3 className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wide">
+                            About
+                          </h3>
+                          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                             {skill.miniSnippet}
                           </p>
                         </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    {/* Hover Indicator */}
-                    <div className="absolute top-4 right-4 opacity-1 group-hover:opacity-100 transition-opacity duration-200">
-                      <HiStar className="w-4 h-4 text-yellow-500" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              );
+            })()}
+          </AnimatePresence>
 
           {/* Skills Summary */}
           <motion.div
@@ -247,13 +359,13 @@ const Skills = () => {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  <div className="text-2xl font-bold  text-green-600 dark:text-green-400">
                     {skills.filter(s => s.proficiency >= 4).length}
                   </div>
                   <div className="text-gray-600 dark:text-gray-400">Advanced</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  <div className="text-2xl font-bold  text-blue-600 dark:text-blue-400">
                     {skills.filter(s => s.proficiency === 3).length}
                   </div>
                   <div className="text-gray-600 dark:text-gray-400">Intermediate</div>

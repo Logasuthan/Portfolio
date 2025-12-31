@@ -56,7 +56,7 @@ export const skills: Skill[] = [
     name: 'React',
     proficiency: 4,
     category: 'frontend',
-    miniSnippet: 'Builds component-based UIs with hooks and context API',
+    miniSnippet: 'Builds scalable UIs using hooks, context, and reusable components',
     icon: '/logo/react.png'
   },
   {
@@ -64,7 +64,7 @@ export const skills: Skill[] = [
     name: 'Next.js',
     proficiency: 4,
     category: 'frontend',
-    miniSnippet: 'Creates SSR/SSG applications with App Router',
+    miniSnippet: 'Develops SEO-friendly apps using SSR, SSG, and App Router',
     icon: '/logo/nextjs.png'
   },
   {
@@ -78,9 +78,9 @@ export const skills: Skill[] = [
   {
     id: 'tanstack-query',
     name: 'TanStack Query',
-    proficiency: 3,
+    proficiency: 2,
     category: 'frontend',
-    miniSnippet: 'Manages server state, caching, and data fetching in React apps',
+    miniSnippet: 'Handles server-state caching, background refetching, and sync',
     icon: '/logo/tanstack-query.svg'
   },
   // Backend
@@ -89,7 +89,7 @@ export const skills: Skill[] = [
     name: 'Node.js',
     proficiency: 3,
     category: 'backend',
-    miniSnippet: 'Develops REST APIs with Express.js framework',
+    miniSnippet: 'Builds REST APIs with authentication and validation',
     icon: '/logo/nodejs.svg'
   },
   {
@@ -105,9 +105,9 @@ export const skills: Skill[] = [
   {
     id: 'sql',
     name: 'PostgreSQL',
-    proficiency: 4,
+    proficiency: 3,
     category: 'database',
-    miniSnippet: 'Writes complex queries with JOINs and subqueries',
+    miniSnippet: 'Designs relational schemas and optimizes complex queries',
     icon: '/logo/postgre.png'
   },
   {
@@ -200,7 +200,7 @@ export const skills: Skill[] = [
   name: 'React Hook Form',
   proficiency: 3,
   category: 'libraries',
-  miniSnippet: 'Builds performant and scalable forms in React applications',
+  miniSnippet: 'Creates type-safe forms with Zod validation and RHF',
   icon: '/logo/react-hook-form.png'
 },
 {
