@@ -63,7 +63,7 @@ const About = () => {
                     Current Role
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm currently working as a Software Engineer, where I focus on 
+                    I&apos;m currently working as a Software Engineer, where I focus on 
                     frontend development and contribute to building scalable web applications. 
                     My passion lies in creating intuitive user experiences and writing clean, 
                     maintainable code.
@@ -80,7 +80,7 @@ const About = () => {
                     Education in Progress
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm actively pursuing my degree in Software Engineering, balancing my studies 
+                    I&apos;m actively pursuing my degree in Software Engineering, balancing my studies 
                     with real-world development experience. This combination allows me to apply 
                     theoretical knowledge to practical projects and stay current with industry trends.
                   </p>
@@ -96,7 +96,7 @@ const About = () => {
                     What Drives Me
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm passionate about continuous learning and staying at the forefront of 
+                    I&apos;m passionate about continuous learning and staying at the forefront of 
                     web development technologies. I believe in writing code that not only works 
                     but is also maintainable, scalable, and provides excellent user experiences.
                   </p>

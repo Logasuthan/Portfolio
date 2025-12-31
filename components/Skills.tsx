@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { skills, skillCategories, type Skill } from "../data/skills";
+import { skills, skillCategories } from "../data/skills";
 import { HiCode, HiX, HiFilter } from "react-icons/hi";
 import Image from "next/image";
 

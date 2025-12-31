@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiExternalLink, HiCode, HiEye, HiCalendar, HiX } from "react-icons/hi";
-import { HiHeart, HiStar } from "react-icons/hi";
+import { HiExternalLink, HiCode, HiX } from "react-icons/hi";
+import { HiStar } from "react-icons/hi";
 import type { Project } from "../data/projects";
 
 interface ProjectCardProps {

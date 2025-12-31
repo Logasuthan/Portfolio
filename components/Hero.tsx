@@ -22,45 +22,11 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
 
-  const badgeVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: { 
-      scale: 1, 
-      rotate: 0,
-      transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-        delay: 0.8,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      rotate: 5,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10,
-      },
-    },
-  };
-
-  const pulseVariants = {
-    pulse: {
-      scale: [1, 1.05, 1],
-      opacity: [1, 0.8, 1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-cover bg-black/80 bg-blend-overlay" id="home"  style={{ backgroundImage: "url('/hero_bg.png')" }}>
@@ -113,7 +79,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
           >
-            Hi, I'm{" "}
+            Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
               Logasuthan
             </span>
