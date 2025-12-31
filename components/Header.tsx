@@ -44,7 +44,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Skip to main content link */}
       <a 
         href="#main-content" 
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[60] bg-blue-600 text-white px-4 py-2 rounded shadow-lg"
@@ -64,7 +63,6 @@ const Header = () => {
       >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo/Name */}
           <motion.a
             className="flex items-center space-x-2"
             variants={itemVariants}
@@ -77,8 +75,6 @@ const Header = () => {
               Loga
             </span>
           </motion.a>
-
-          {/* Desktop Navigation */}
           <motion.nav
             className="hidden md:flex items-center space-x-8"
             variants={itemVariants}
@@ -95,16 +91,12 @@ const Header = () => {
               </motion.a>
             ))}
           </motion.nav>
-
-          {/* Theme Toggle and Mobile Menu Button */}
           <motion.div
             className="flex items-center space-x-4"
             variants={itemVariants}
           >
             <ThemeToggle />
-            
-            {/* Mobile menu button */}
-            <button
+                        <button
               className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -112,8 +104,6 @@ const Header = () => {
             </button>
           </motion.div>
         </div>
-
-        {/* Mobile Navigation */}
         <motion.div
           className={`md:hidden ${isOpen ? "block" : "hidden"}`}
           initial={{ opacity: 0, height: 0 }}

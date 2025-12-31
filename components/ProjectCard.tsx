@@ -20,7 +20,6 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  // Freeze background scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
       // Save current scroll position
@@ -113,7 +112,6 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
               transition={{ duration: 0.2 }}
             >
               <div className="flex flex-col gap-3 p-4 pb-0">
-              {/* <p className="text-sm">{project.description}</p> */}
               <div className="flex space-x-4">
                 <motion.button
                     onClick={(e) => {
@@ -125,38 +123,8 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
                     whileTap={{ scale: 0.95 }}
                     aria-label={`View ${project.title} details`}
                   >
-                    {/* <HiCode className="w-4 h-4" /> */}
                     <span>View Details</span>
                   </motion.button>
-                {/* {project.repo && (
-                  <motion.a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg font-medium transition-colors duration-200 cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={`View ${project.title} source code`}
-                  >
-                    <HiCode className="w-4 h-4" />
-                    <span>Code</span>
-                  </motion.a>
-                )} */}
-
-                {/* {project.live && (
-                  <motion.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={`View ${project.title} live demo`}
-                  >
-                    <HiEye className="w-4 h-4" />
-                    <span>{project.isLive ? "Live" : "Demo Video"}</span>
-                  </motion.a>
-                )} */}
               </div>
               </div>
             </motion.div>

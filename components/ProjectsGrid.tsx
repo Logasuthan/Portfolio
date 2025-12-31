@@ -11,7 +11,6 @@ const ProjectsGrid = () => {
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Filter projects based on selected category and technologies
   const filteredProjects = useMemo(() => {
     let filtered = projects;
 
