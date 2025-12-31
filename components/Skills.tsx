@@ -278,7 +278,7 @@ const Skills = () => {
                   {/* Expanded Card */}
                   <motion.div
                     layoutId={`skill-card-${expandedSkill}`}
-                    className={`fixed sm:top-1/2 sm:left-1/25 lg:top-1/4 lg:left-1/4 z-50 w-[calc(100%-2rem)] max-w-2xl`}
+                    className={`fixed top-1/4 sm:top-1/2 sm:left-1/25 lg:top-1/4 lg:left-1/4 z-50 w-[calc(100%-2rem)] max-w-2xl`}
                     style={{
                       x: '-50%',
                       y: '-50%',

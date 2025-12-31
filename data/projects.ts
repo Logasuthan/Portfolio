@@ -68,7 +68,7 @@ export const projects: Project[] = [
     live: "https://myrecipeblog.netlify.app",
     featured: false,
     category: "website",
-    isLive: false,
+    isLive: true,
     features: [
       " Responsive recipe listing and detail pages using Next.js App Router",
       "Server-Side Rendering (SSR) for improved SEO and faster initial load",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     ],
     image: "/portfolio.png",
     repo: "https://github.com/Logasuthan/Portfolio",
-    live: "https://loga.dev",
+    live: "",
     featured: true,
     category: "website",
     isLive: true,

@@ -63,7 +63,7 @@ const About = () => {
                     Current Role
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I&apos;m currently working as a Software Engineer, where I focus on 
+                    I&apos;m currently working as Associate Software Engineer, where I focus on 
                     frontend development and contribute to building scalable web applications. 
                     My passion lies in creating intuitive user experiences and writing clean, 
                     maintainable code.
