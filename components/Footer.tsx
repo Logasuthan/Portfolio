@@ -53,7 +53,7 @@ const Footer = () => {
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -64,7 +64,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-xs">
-              Full-stack developer passionate about creating beautiful, functional, and user-friendly web applications.
+              Frontend-focused Software Engineer passionate about creating beautiful, functional, and user-friendly web applications.
             </p>
           </motion.div>
           <motion.div variants={itemVariants} className="space-y-4">
@@ -84,27 +84,7 @@ const Footer = () => {
               ))}
             </ul>
           </motion.div>
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Connect
-            </h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-2 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-200 ${social.color}`}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+       
         </div>
         <motion.div
           className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center"
