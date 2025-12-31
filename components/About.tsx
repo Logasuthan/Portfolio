@@ -42,7 +42,6 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Section Header */}
           <motion.div
             variants={itemVariants}
             className="text-center mb-16"
@@ -54,7 +53,6 @@ const About = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Bio Content */}
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
@@ -106,7 +104,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Skills Grid */}
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
@@ -139,7 +136,6 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Additional Info */}
               <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                   Quick Facts

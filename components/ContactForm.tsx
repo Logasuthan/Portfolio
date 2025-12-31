@@ -64,7 +64,6 @@ const ContactForm = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Section Header */}
           <motion.div
             variants={itemVariants}
             className="text-center mb-16"
@@ -83,7 +82,6 @@ const ContactForm = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
           </motion.div>
 
-          {/* Contact Information Cards */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
@@ -115,7 +113,6 @@ const ContactForm = () => {
             })}
           </motion.div>
 
-          {/* Additional Info */}
           <motion.div
             variants={itemVariants}
             className="text-center"
