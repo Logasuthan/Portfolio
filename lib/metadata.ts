@@ -28,7 +28,7 @@ const baseMetadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://your-domain.com'), // Replace with your actual domain
+  metadataBase: new URL('https://logasuthan.netlify.app'),
   alternates: {
     canonical: '/',
   },
@@ -49,28 +49,18 @@ const baseMetadata = {
 const openGraph = {
   type: 'website',
   locale: 'en_US',
-  url: 'https://your-domain.com', // Replace with your actual domain
+  url: 'https://logasuthan.netlify.app',
   siteName: 'Loga Portfolio',
   title: 'Loga - Frontend Software Engineer Portfolio',
   description: 'Frontend-focused Associate Software Engineer with 2+ years of experience building modern web applications. Specializing in React, Next.js, TypeScript, and responsive design.',
   images: [
     {
-      url: '/og-image.jpg', // This will be your generated OG image
+      url: '/og-image.png',
       width: 1200,
       height: 630,
       alt: 'Loga - Frontend Software Engineer Portfolio',
     },
   ],
-};
-
-// Twitter metadata
-const twitter = {
-  card: 'summary_large_image',
-  title: 'Loga - Frontend Software Engineer Portfolio',
-  description: 'Frontend-focused Associate Software Engineer with 2+ years of experience building modern web applications.',
-  images: ['/og-image.jpg'], // Same as OG image
-  creator: '@yourtwitterhandle', // Replace with your Twitter handle
-  site: '@yourtwitterhandle', // Replace with your Twitter handle
 };
 
 // Function to generate metadata for specific pages
@@ -87,7 +77,7 @@ export function generateMetadata({
 } = {}): Metadata {
   const pageTitle = title ? `${title} | Loga Portfolio` : baseMetadata.title.default;
   const pageDescription = description || baseMetadata.description;
-  const pageImage = image || '/og-image.jpg';
+  const pageImage = image || '/og-image.png';
   const pageUrl = url || '';
 
   return {
@@ -108,12 +98,6 @@ export function generateMetadata({
         },
       ],
     },
-    twitter: {
-      ...twitter,
-      title: pageTitle,
-      description: pageDescription,
-      images: [pageImage],
-    },
     alternates: {
       canonical: pageUrl || '/',
     },
@@ -124,7 +108,6 @@ export function generateMetadata({
 export const defaultMetadata: Metadata = {
   ...baseMetadata,
   openGraph,
-  twitter,
 };
 
 // Page-specific metadata presets
