@@ -52,7 +52,7 @@ const About = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 items-center">
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
@@ -101,59 +101,6 @@ const About = () => {
                     but is also maintainable, scalable, and provides excellent user experiences.
                   </p>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="space-y-6">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                  <HiCode className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Technical Skills
-                </h3>
-              </div>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    className="px-4 py-2 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      backgroundColor: "rgba(59, 130, 246, 0.1)",
-                      borderColor: "rgb(59, 130, 246)"
-                    }}
-                    transition={{ duration: 0.2 }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    style={{ transitionDelay: `${index * 0.1}s` }}
-                  >
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {skill}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                  Quick Facts
-                </h4>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>2+ years of development experience</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span>Frontend-focused with full-stack capabilities</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                    <span>Passionate about clean code and user experience</span>
-                  </li>
-                </ul>
               </div>
             </motion.div>
           </div>
